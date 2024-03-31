@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "ac8ce4b9-d23f-484d-b45c-3d15411c3319",
+		"name": "DynamicQuery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Using post call",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "id,name,firstEnrolled.id,firstEnrolled.description",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/studentname/s1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"studentname",
+						"s1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "using graphql",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getStudentByNameUsingGraphQl($name: String!) {\r\n  student: getStudentByNameUsingGraphQl(name: $name) {\r\n    rollNum\r\n  }\r\n}",
+						"variables": "{\r\n  \"name\": \"s1\"\r\n}"
+					},
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

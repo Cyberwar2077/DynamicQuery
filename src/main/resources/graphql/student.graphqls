@@ -1,0 +1,17 @@
+type Student {
+    id: ID!
+    name: String
+    rollNum: Int	
+    tutorials: [Tutorial]
+    firstEnrolled: Tutorial
+}
+
+type Tutorial {
+    id: ID!
+    title: String
+    description: String
+}
+
+type Query {
+    getStudentByNameUsingGraphQl(name: String): Student!
+}
